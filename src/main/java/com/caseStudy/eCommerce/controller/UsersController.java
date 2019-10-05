@@ -1,13 +1,11 @@
-/*package com.caseStudy.eCommerce.controller;
+package com.caseStudy.eCommerce.controller;
 
 import com.caseStudy.eCommerce.Repository.UserRepo;
 import com.caseStudy.eCommerce.model.Users;
 import com.caseStudy.eCommerce.model.items;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -15,10 +13,14 @@ import java.util.List;
 @CrossOrigin(origins = "http://localhost:4200",allowedHeaders = "*")
 public class UsersController {
     UserRepo u;
-    @GetMapping("/getuser")
-    public List<Users> getUsers()
-    {
-        return u.findAll();
-    }
-
-}*/
+   @PostMapping("/createUser")
+    public Users newUser(@Valid @RequestBody Users user)
+   {
+       return u.save(user);
+   }
+   @GetMapping("/validuser")
+   public String valUser()
+   {
+       return "\"user successfully authenticated\"";
+   }
+}
