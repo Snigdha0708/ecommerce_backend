@@ -1,5 +1,7 @@
 package com.caseStudy.eCommerce.model;
 
+import org.springframework.stereotype.Component;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
