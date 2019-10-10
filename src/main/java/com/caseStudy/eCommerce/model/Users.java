@@ -16,12 +16,16 @@ public class Users implements Serializable
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
    private String email;
-
-
-    private String password;
+   private String password;
    private int active;
    private String authorisation;
-
+   public Users()
+   {}
+   public Users(String email,String password)
+   {
+       this.email=email;
+       this.password=password;
+   }
     public Long getId() {
         return id;
     }
