@@ -29,9 +29,9 @@ public class CartController {
         return currentCart.addItemToCart(principal,productId);
     }
     @GetMapping(path="/cart/delete/productId/{id}")
-    public String deleteItemFromCart(@PathVariable("id")Long id,Principal principal)
+    public String deleteItemFromCart(@PathVariable("id")Long productId,Principal principal)
     {
-        return currentCart.deleteItemFromCart(id,principal);
+        return currentCart.deleteItemFromCart(productId,principal);
     }
     @GetMapping("/cart/increment/{value}/product/{productId}")
     public String increment(@PathVariable("value")int value,@PathVariable("productId")Long productId,Principal principal)
