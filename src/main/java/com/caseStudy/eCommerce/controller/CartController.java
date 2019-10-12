@@ -1,12 +1,14 @@
 package com.caseStudy.eCommerce.controller;
 import com.caseStudy.eCommerce.Repository.CartRepo;
 import com.caseStudy.eCommerce.model.Cart;
+import com.caseStudy.eCommerce.model.orderHistory;
 import com.caseStudy.eCommerce.service.CurrentCart;
 import com.caseStudy.eCommerce.service.CurrentUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.parameters.P;
 import org.springframework.web.bind.annotation.*;
 
+import javax.persistence.GeneratedValue;
 import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
@@ -42,5 +44,9 @@ public class CartController {
     public String decrement(@PathVariable("value")int value,@PathVariable("productId")Long productId,Principal principal)
     {
         return currentCart.decrement(value,productId,principal);
+    }
+    @GetMapping(value = "/checkout", produces = "application/json")
+    public List<orderHistory> checkoutFromCart(Principal principal){
+        return currentCart.checkOut(principal);
     }
 }

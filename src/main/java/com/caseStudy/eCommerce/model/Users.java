@@ -19,6 +19,9 @@ public class Users implements Serializable
    private String password;
    private int active;
    private String authorisation;
+   private String address;
+   private String contact;
+   private String name;
    public Users()
    {}
    public Users(String email,String password)
@@ -26,6 +29,7 @@ public class Users implements Serializable
        this.email=email;
        this.password=password;
    }
+
     public Long getId() {
         return id;
     }
@@ -34,13 +38,6 @@ public class Users implements Serializable
         this.id = id;
     }
 
-    public String getAuthorisation() {
-        return authorisation;
-    }
-
-    public void setAuthorisation(String authorisation) {
-        this.authorisation = authorisation;
-    }
     public String getEmail() {
         return email;
     }
@@ -65,5 +62,35 @@ public class Users implements Serializable
         this.active = active;
     }
 
+    public String getAuthorisation() {
+        return authorisation;
+    }
 
+    public void setAuthorisation(String authorisation) {
+        this.authorisation = authorisation;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getContact() {
+        return contact;
+    }
+
+    public void setContact(String contact) {
+        this.contact = contact;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }
