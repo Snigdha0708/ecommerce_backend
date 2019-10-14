@@ -19,34 +19,35 @@ import java.util.List;
 public class CartController {
     @Autowired
     CurrentCart currentCart;
+
     //Principal principal;
-    @GetMapping(path="/cart")
-    public ArrayList<Cart> getCart(Principal principal)
-    {
+    @GetMapping(path = "/cart")
+    public ArrayList<Cart> getCart(Principal principal) {
         return currentCart.getEmail(principal);
     }
-    @GetMapping(path="/cart/add/productId/{id}")
-    public String addItemToCart(@PathVariable("id") Long productId,Principal principal)
-    {
-        return currentCart.addItemToCart(principal,productId);
+
+    @GetMapping(path = "/cart/add/productId/{id}")
+    public String addItemToCart(@PathVariable("id") Long productId, Principal principal) {
+        return currentCart.addItemToCart(principal, productId);
     }
-    @GetMapping(path="/cart/delete/productId/{id}")
-    public String deleteItemFromCart(@PathVariable("id")Long productId,Principal principal)
-    {
-        return currentCart.deleteItemFromCart(productId,principal);
+
+    @GetMapping(path = "/cart/delete/productId/{id}")
+    public String deleteItemFromCart(@PathVariable("id") Long productId, Principal principal) {
+        return currentCart.deleteItemFromCart(productId, principal);
     }
+
     @GetMapping("/cart/increment/{value}/product/{productId}")
-    public String increment(@PathVariable("value")int value,@PathVariable("productId")Long productId,Principal principal)
-    {
-        return currentCart.increment(value,productId,principal);
+    public String increment(@PathVariable("value") int value, @PathVariable("productId") Long productId, Principal principal) {
+        return currentCart.increment(value, productId, principal);
     }
+
     @GetMapping("/cart/decrement/{value}/product/{productId}")
-    public String decrement(@PathVariable("value")int value,@PathVariable("productId")Long productId,Principal principal)
-    {
-        return currentCart.decrement(value,productId,principal);
+    public String decrement(@PathVariable("value") int value, @PathVariable("productId") Long productId, Principal principal) {
+        return currentCart.decrement(value, productId, principal);
     }
+
     @GetMapping(value = "/checkout", produces = "application/json")
-    public List<orderHistory> checkoutFromCart(Principal principal){
+    public List<orderHistory> checkoutFromCart(Principal principal) {
         return currentCart.checkOut(principal);
     }
 }

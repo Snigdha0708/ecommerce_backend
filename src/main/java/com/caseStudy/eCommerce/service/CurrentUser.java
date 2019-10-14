@@ -1,6 +1,7 @@
 package com.caseStudy.eCommerce.service;
 
 import com.caseStudy.eCommerce.Repository.MycartRepo;
+import com.caseStudy.eCommerce.Repository.UserRepo;
 import com.caseStudy.eCommerce.model.Users;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

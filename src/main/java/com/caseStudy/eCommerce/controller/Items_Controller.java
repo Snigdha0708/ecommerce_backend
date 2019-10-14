@@ -28,6 +28,7 @@ public class Items_Controller
     @PostMapping("/details")
     public items createNewItem(@Valid @RequestBody items ifc)
     {
+        ifc.setActive(1);
         return it.save(ifc);
     }
     @DeleteMapping("/del")
@@ -56,5 +57,24 @@ public class Items_Controller
     public List<items> getPriceDetails(@PathVariable(value = "price1")Double price1,@PathVariable(value = "price2")Double price2)
     {
         return it.findByPriceBetween(price1, price2);
+    }
+    @GetMapping("search/{name}")
+    public List<items> getSearch(@PathVariable(value = "name")String name)
+    {
+        return it.findByName(name);
+    }
+    @PutMapping("/update/{id}")
+    public items updateItem(@PathVariable(value = "id")Long productId, @Valid @RequestBody items items)
+    {
+        items i = it.findByProductId(productId);
+        i.setActive(1);
+        i.setCategory(items.getCategory());
+        i.setSubcategory(items.getSubcategory());
+        i.setPrice(items.getPrice());
+        i.setDetails(items.getDetails());
+        i.setImage(items.getImage());
+        i.setName(items.getName());
+        items newItem = it.save(i);
+        return newItem;
     }
 }
