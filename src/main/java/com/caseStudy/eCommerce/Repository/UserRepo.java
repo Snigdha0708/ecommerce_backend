@@ -14,4 +14,5 @@ public interface UserRepo extends JpaRepository<Users,Long>
     @Override
     List<Users> findAll();
     Optional<Users> findByEmail(String email);
+
     }
