@@ -29,5 +29,9 @@ public class UsersController {
        //this.principal=principal;
        return "\"user successfully authenticated\"";
    }
-
+      @GetMapping("/getUsers")
+    public List<Users> getAll()
+      {
+          return u.findAll();
+      }
 }
