@@ -16,7 +16,7 @@ public interface itemRepo extends JpaRepository<items,Long> {
     List<items> findByCategoryAndPriceBetween(String category, Double a, Double b);
 
     List<items> findByPriceBetween(Double a, Double b);
-    List<items> findByName(String name);
+    List<items> findByNameContaining(String name);
     items findByProductId(Long productId);
 
 }

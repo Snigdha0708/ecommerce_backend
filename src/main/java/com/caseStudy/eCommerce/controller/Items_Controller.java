@@ -61,7 +61,7 @@ public class Items_Controller
     @GetMapping("search/{name}")
     public List<items> getSearch(@PathVariable(value = "name")String name)
     {
-        return it.findByName(name);
+        return it.findByNameContaining(name);
     }
     @PutMapping("/update/{id}")
     public items updateItem(@PathVariable(value = "id")Long productId, @Valid @RequestBody items items)
